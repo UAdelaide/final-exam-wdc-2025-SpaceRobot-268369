@@ -95,23 +95,22 @@
         const myDogs = ref([]);
 
 
-async function fetchDogs() {
-  loading.value = true
-  error.value = ''
-  try {
-    const res = await axios.get('/api/users/mydogs')
-    dogs.value = res.data
-  } catch (err) {
-    // Customize error message based on response
-    if (err.response?.status === 401) {
-      error.value = 'Please log in as an owner to view your dogs.'
-    } else {
-      error.value = err.response?.data?.error || 'Failed to load dogs.'
-    }
-  } finally {
-    loading.value = false
-  }
-}
+        async function fetchDogs() {
+          loading.value = true
+          error.value = ''
+          try {
+            const res = await axios.get('/api/users/mydogs')
+            dogs.value = res.data
+          } catch (err) {
+            if (err.response?.status === 401) {
+              error.value = 'Please log in as an owner to view your dogs.'
+            } else {
+              error.value = err.response?.data?.error || 'Failed to load dogs.'
+            }
+          } finally {
+            loading.value = false
+          }
+        }
 
 
 
