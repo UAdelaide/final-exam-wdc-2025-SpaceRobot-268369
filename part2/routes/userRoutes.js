@@ -93,6 +93,8 @@ router.post('/logout', (req, res) => {
         message: 'failed logout'
       });
     }
+
+    return res.sa
   });
 });
 
