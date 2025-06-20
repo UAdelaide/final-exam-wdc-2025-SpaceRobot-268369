@@ -22,7 +22,7 @@
             data() {
                 return {
                     dogImage: 'example.example',
-                    unlockText: ''
+                    unlockText: '',
                     unlockStatus: false
                 }
             },
@@ -36,6 +36,9 @@
                         .then(data => {
                             this.dogImage = data.message;
                         })
+                },
+                unlock() {
+
                 }
             }
         }).mount('#app')
