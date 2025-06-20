@@ -5,6 +5,14 @@ const session = require('express-session');
 
 const app = express();
 
+app.use(session ({
+    secret: 'IBdsfuahsd1213',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {secure: false}
+}));
+
+
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
@@ -15,12 +23,7 @@ const userRoutes = require('./routes/userRoutes');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
-app.use(session ({
-    secret: 'IBdsfuahsd1213',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {secure: false}
-}));
+
 
 
 // Export the app instead of listening here
