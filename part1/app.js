@@ -32,8 +32,7 @@ app.get('/api/dogs', async (req, res) => {
     const conn = await mysql.createConnection(dbConfig);
     const [rows] = await conn.execute(`
       SELECT d.name AS dog_name, d.size, u.username AS owner_username
-      FROM Dogs d
-      JOIN Users u ON d.owner_id = u.user_id
+      FROM Dogs
     `);
     res.json(rows);
   } catch (err) {
