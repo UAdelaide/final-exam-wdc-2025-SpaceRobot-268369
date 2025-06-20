@@ -11,6 +11,7 @@
             <img :src="dogImage" />
             <div class="basic-info">
                 <input type="text" v-model="unlockText" placeholder="Type 'show info' here" />
+                <button :disabled="unlockText !== 'show info'" @click="fetchDog">Show Dog</button>
             </div>
         </div>
 
