@@ -29,7 +29,7 @@
       data() {
         return {
           message: 'Welcome to the Dog Walking Service!',
-          role: null,
+          response: null,
           username: '',
           password: '',
         };
@@ -44,7 +44,7 @@
               password: this.password
             })
           });
-          this.
+          this.response = await res.json()
         }
       }
     }).mount('#app');
