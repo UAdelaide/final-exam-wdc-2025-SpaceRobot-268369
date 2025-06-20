@@ -84,7 +84,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post
+router.post('/logout', (req, res) => {
+  req.se
+})
 
 
 
