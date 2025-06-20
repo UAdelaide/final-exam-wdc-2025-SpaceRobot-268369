@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config();
 const session = require('express-session');
-var mysql = require('mysql2/promise');
+const db = require('./models/db');
 
 
 const app = express();
@@ -27,19 +27,6 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
 
-app.get('/api/dogs', async (req, res) => {
-  try {
-    const conn = await mysql.createConnection(dbConfig);
-    const [rows] = await conn.execute(`
-      SELECT d.name AS dog_name, d.size, u.username AS owner_username
-      FROM Dogs d
-      JOIN Users u ON d.owner_id = u.user_id
-    `);
-    res.json(rows);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch dogs' });
-  }
-});
 
 
 // Export the app instead of listening here
