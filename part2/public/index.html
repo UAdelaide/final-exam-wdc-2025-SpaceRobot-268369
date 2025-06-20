@@ -55,6 +55,18 @@
     createApp({
       setup() {
         const dogs = ref([]);
+
+        const fetchDogs = async () => {
+          try {
+            const res = await fetch('/api/dogs');
+            const data = await res.json();
+            dogs.value = data;
+          } catch (err) {
+            console.error('Error fetching dogs:', err);
+          }
+        };
+
+
       }
 
       data() {
