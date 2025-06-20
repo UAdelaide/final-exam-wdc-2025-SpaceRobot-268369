@@ -7,7 +7,7 @@
     <body>
         <div id="app">
             <h1>The dog of the day</h1>
-
+            <img :src="dogImage" alt="">
         </div>
 
     <script>
@@ -16,7 +16,7 @@
         createApp({
             data() {
                 return {
-                    dogImage: ''
+                    dogImage: 'example.example'
                 }
             }
         })
