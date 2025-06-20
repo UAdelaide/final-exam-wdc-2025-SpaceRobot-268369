@@ -53,17 +53,6 @@
   <script>
     const { createApp, ref, onMounted } = Vue;
     createApp({
-      setup() {
-        const dogs = ref([]);
-        async function fetchRandomPhoto() {
-          const res = await fetch('https://dog.ceo/api/breeds/image/random');
-          const data = await res.json();
-          return data.message;
-        }
-
-
-      }
-
       data() {
         return {
           message: 'Welcome to the Dog Walking Service!',
