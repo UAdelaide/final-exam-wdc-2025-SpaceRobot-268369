@@ -91,10 +91,10 @@ router.post('/logout', (req, res) => {
       return res.status(500).json({
         success: false,
         message: 'failed logout'
-      })
+      });
     }
-  })
-})
+  });
+});
 
 
 
