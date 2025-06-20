@@ -31,6 +31,7 @@
                 {{ dog.name }}
               </option>
             </select>
+            <p> </p>
           </div>
 
           <div class="mb-3">
@@ -96,6 +97,7 @@
           try {
             const res = await fetch('/api/walks/mydogs', { credentials: 'include' });
             myDogs.value = await res.json();
+            console.log(myDogs.value)
           } catch (err) {
             console.error('Failed to load dogs:', err);
           }
