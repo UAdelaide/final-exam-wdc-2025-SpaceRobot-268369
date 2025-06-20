@@ -37,22 +37,25 @@ router.get('/me', (req, res) => {
 
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
+
   try {
     const [rows] = await db.query(`
-      SELECT user_id, username, role
+      SELECT user_id, username, email, role
       FROM Users
-      WHERE email = ? AND password_hash = ?
-    `, [email, password]);
+      WHERE username = ? AND password_hash = ?
+    `, [username, password]);
 
     if (rows.length === 0) {
       return res.status(200).json({
         success: false,
-        message: 'Invalid email or password',
+        message: 'Invalid username or password',
         role: null
       });
     }
+
     const user = rows[0];
+
     return res.status(200).json({
       success: true,
       message: 'Login successful',
@@ -60,7 +63,7 @@ router.post('/login', async (req, res) => {
       user: {
         id: user.user_id,
         username: user.username,
-        email: email
+        email: user.email
       }
     });
   } catch (error) {
