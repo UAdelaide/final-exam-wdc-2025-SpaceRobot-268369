@@ -85,9 +85,19 @@
           }
         },
 
-      async fetchDogs() {
+        async fetchDogs() {
+
+          try {
+            const res = await fetch('/api/dogs');
+            const data = await res.json();
+            this.dogs = data;
+          } catch (err) {
+            console.error('Error fetching dogs:', err);
+          }
+        }
+
+
         
-      }
 
 
       }
