@@ -86,7 +86,6 @@
         },
 
         async fetchDogs() {
-
           try {
             const res = await fetch('/api/dogs');
             const data = await res.json();
@@ -95,9 +94,6 @@
             console.error('Error fetching dogs:', err);
           }
         }
-
-
-        
 
 
       }
