@@ -120,18 +120,18 @@
         }
 
         async function logout() {
-  try {
-    const res = await fetch('/logout', { method: 'POST' });
-    const result = await res.json();
-    if (result.success) {
-      window.location.href = 'login.html';
-    } else {
-      alert('Logout failed.');
-    }
-  } catch (err) {
-    alert('Error during logout.');
-  }
-}
+          try {
+            const res = await fetch('/logout', { method: 'POST' });
+            const result = await res.json();
+            if (result.success) {
+              window.location.href = 'login.html';
+            } else {
+              alert('Logout failed.');
+            }
+          } catch (err) {
+            alert('Error during logout.');
+          }
+        }
 
         onMounted(() => {
           loadWalks();
@@ -142,7 +142,8 @@
           walks,
           message,
           error,
-          submitWalkRequest
+          submitWalkRequest,
+          logout
         };
       }
     }).mount('#app');
