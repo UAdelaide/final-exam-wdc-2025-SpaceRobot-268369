@@ -96,18 +96,13 @@
 
         async function loadDogs() {
           try {
-            const res = await fetch('/api/users/mydogs', {
-              credentials: 'include',
-              headers: { 'Accept': 'application/json' },
-            })
-            if (!res.ok) {
-              console.error('Fetch error:', res.status, await res.text())
-              return
-            }
-            myDogs.value = await res.json()
+            const res = await fetch('/api/walks/mydogs', { credentials: 'include' });
+            myDogs.value = await res.json();
+            console.log(myDogs.value)
           } catch (err) {
-            console.error('Network error:', err)
+            console.error('Failed to load dogs:', err);
           }
+          console.log(myDogs.value)
         }
 
         async function loadWalks() {
