@@ -16,7 +16,9 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use(session ({
-    secret: ''
+    secret: 'IBdsfuahsd1213',
+    resave: false,
+    saveUninitialized: true
 }))
 
 
