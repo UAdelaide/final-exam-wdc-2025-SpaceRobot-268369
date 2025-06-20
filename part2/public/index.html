@@ -61,8 +61,25 @@
           return data.message;
         }
 
+      async function loadDogs() {
+        try {
+          const res = await fetch('/api/dogs');
+          const baseDogs = await res.json();
 
-        
+          const enrichedDogs = await Promise.all(
+            baseDogs.map(async (dog) => ({
+              ...dog,
+              photo: await fetchRandomPhoto()
+            }))
+          );
+
+          dogs.value = enrichedDogs;
+        } catch (err) {
+          console.error('Failed to load dogs:', err);
+        }
+      }
+      
+
       }
 
       data() {
