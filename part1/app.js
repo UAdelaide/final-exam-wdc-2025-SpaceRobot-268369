@@ -10,7 +10,7 @@ var app = express();
 
 
 const dbConfig = {
-    database: 'dogwalks',
+    database: 'DogWalkService',
     user: 'root',
     password: ''
 };
