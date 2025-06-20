@@ -49,7 +49,11 @@
           });
           this.response = await res.json()
 
-          if (this.response.success)
+          if (this.response.success) {
+            if (this.response.role === 'walker') {
+              
+            }
+          }
         }
       }
     }).mount('#app');
