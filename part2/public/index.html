@@ -48,6 +48,8 @@
             })
           });
           this.response = await res.json()
+
+          if (this.response.success)
         }
       }
     }).mount('#app');
