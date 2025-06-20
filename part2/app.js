@@ -19,8 +19,8 @@ app.use(session ({
     secret: 'IBdsfuahsd1213',
     resave: false,
     saveUninitialized: true,
-    cookie: {secure: false},
-}))
+    cookie: {secure: false}
+}));
 
 
 // Export the app instead of listening here
