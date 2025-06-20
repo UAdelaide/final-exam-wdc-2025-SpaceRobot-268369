@@ -35,7 +35,11 @@
         };
       },
       methods: {
-        async login() {}
+        async login() {
+          const res = await fetch('/login', {
+            method:
+          })
+        }
       }
     }).mount('#app');
   </script>
