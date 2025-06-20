@@ -123,7 +123,13 @@
         onMounted(() => {
           loadWalkRequests();
           async () => {
-            
+            const user = await getCurrentUser();
+            if (user && user.role === 'walker') {
+              walkerId.value = user.id;
+              loadWalkRequests();
+            } else {
+              error.value = 'Unauthorized access. You must be logged in as a walker.';
+            }
           }
         });
 
