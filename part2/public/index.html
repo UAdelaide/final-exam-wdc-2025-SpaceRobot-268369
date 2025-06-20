@@ -37,7 +37,8 @@
       methods: {
         async login() {
           const res = await fetch('/login', {
-            method:
+            method: 'POST',
+            headers: {'Content-Type': 'appli'}
           })
         }
       }
