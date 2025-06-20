@@ -53,6 +53,10 @@
   <script>
     const { createApp, ref, onMounted } = Vue;
     createApp({
+      setup() {
+        const dogs = ref([]);
+      }
+
       data() {
         return {
           message: 'Welcome to the Dog Walking Service!',
