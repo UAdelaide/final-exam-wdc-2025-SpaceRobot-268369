@@ -92,11 +92,26 @@
         try {
           const res = await fetch('/api/dogs');
           const data = await res.json();
-          this.dogs = data;
+
+          const dogsWithPhotos = await Promise.all(
+            data.map(async (dog) => {
+              try {
+                const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+                const imgData = await imgRes.json();
+                return { ...dog, photo: imgData.message };
+              } catch (e) {
+                console.error('Failed to fetch random image for dog:', dog.dog_id);
+                return { ...dog, photo: '' };
+              }
+            })
+          );
+
+          this.dogs = dogsWithPhotos;
         } catch (err) {
           console.error('Error fetching dogs:', err);
         }
       }
+
     },
     mounted(){
       this.fetchDogs();
