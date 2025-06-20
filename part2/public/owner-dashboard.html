@@ -121,14 +121,21 @@
 
         async function logout() {
           try {
-            const res = await fetch('/logout', { method: 'POST', credentials: 'include' });
+            const res = await fetch('/logout', {
+              method: 'POST',
+              credentials: 'include'
+            });
+
             const result = await res.json();
+
             if (result.success) {
+              // Redirect user to login/home page
               window.location.href = '/index.html';
             } else {
-              alert('Logout failed.');
+              alert('Logout failed: ' + result.message);
             }
           } catch (err) {
+            console.error('Logout error:', err);
             alert('Error during logout.');
           }
         }
