@@ -7,30 +7,6 @@
     <body>
 
 
-    <script>
-        const { createApp } = Vue;
-        createApp({
-        data() {
-            return {
-            dogImage: '',
-            dogName: 'Commander Woofles',
-            dogBreed: 'Unicorn Shepherd',
-            dogAge: 'Approx. 17 moon rotations'
-            };
-        },
-        mounted() {
-            this.fetchDog();
-        },
-        methods: {
-            fetchDog() {
-            fetch('https://dog.ceo/api/breeds/image/random')
-                .then(res => res.json())
-                .then(data => {
-                this.dogImage = data.message;
-                });
-            }
-        }
-        }).mount('#app');
-    </script>
+
     </body>
 </html>
