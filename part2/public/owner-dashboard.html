@@ -121,7 +121,7 @@
 
         async function logout() {
           try {
-            const res = await fetch('/logout', { method: 'POST' });
+            const res = await fetch('/logout', { method: 'POST', credentials: 'include' });
             const result = await res.json();
             if (result.success) {
               window.location.href = 'login.html';
