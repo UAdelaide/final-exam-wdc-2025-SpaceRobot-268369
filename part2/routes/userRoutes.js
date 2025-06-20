@@ -58,7 +58,9 @@ router.post('/login', async (req, res) => {
 
     const user = rows[0];
 
-    re
+    req.session.user = {
+      
+    };
 
     return res.status(200).json({
       success: true,
