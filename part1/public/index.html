@@ -28,11 +28,11 @@
                     fetch('https://dog.ceo/api/breeds/image/random')
                         .then(res => res.json())
                         .then(data => {
-                            this.dogImage = data.dogImage;
+                            this.dogImage = data.message;
                         })
                 }
             }
-        })
+        }).mount('#a')
 
     </script>
     </body>
