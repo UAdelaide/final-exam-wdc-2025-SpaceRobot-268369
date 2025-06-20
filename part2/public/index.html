@@ -53,24 +53,6 @@
   <script>
     const { createApp, ref, onMounted } = Vue;
     createApp({
-      setup() {
-        const dogs = ref([]);
-
-        const fetchDogs = async () => {
-          try {
-            const res = await fetch('/api/dogs');
-            const data = await res.json();
-            dogs.value = data;
-          } catch (err) {
-            console.error('Error fetching dogs:', err);
-          }
-        };
-
-        onMounted(fetchDogs);
-        return { dogs };
-
-      }
-
       data() {
         return {
           message: 'Welcome to the Dog Walking Service!',
