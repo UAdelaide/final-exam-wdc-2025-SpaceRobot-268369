@@ -60,7 +60,6 @@ app.get('/api/walkrequests/open', async (req, res) => {
     `);
     res.json(rows);
   } catch (err) {
-    // console.error('Error in /api/walkrequests/open:', err);
     res.status(500).json({ error: 'Failed to fetch open walk requests' });
   }
 });
@@ -84,7 +83,6 @@ app.get('/api/walkers/summary', async (req, res) => {
     `);
     res.json(rows);
   } catch (err) {
-    // console.error('Error in /api/walkers/summary:', err);
     res.status(500).json({ error: 'Failed to fetch walker summary' });
   }
 });
